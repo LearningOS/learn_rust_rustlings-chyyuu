@@ -15,5 +15,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
         with:
+          toolchain: stable
           components: rustfmt, clippy
+      - name: Install rustlings
+        run: |
+          cargo install --force --path .
+          rustlings --help
       - uses: education/autograding@v1
